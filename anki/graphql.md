@@ -4,6 +4,7 @@ date: "2020-12-25T08:45:46"
 description: "Anki deck for Graphql cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 # Graphql

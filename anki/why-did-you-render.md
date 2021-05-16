@@ -4,6 +4,7 @@ date: "2021-01-04T11:47:36"
 description: "Anki deck for Why Did You Render cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 # Why Did You Render

@@ -9,6 +9,7 @@
       "description: \"Anki deck for ${1:Title} cards.\"",
       "draft: ${3:true}",
       "# image: ${4:/path/to/image}",
+      "css: custom-styles.css",
       "---",
       "",
       "# ${1:Title}",

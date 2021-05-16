@@ -4,6 +4,7 @@ date: "2020-12-30T10:58:41"
 description: "Anki deck for Javascript cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 # Javascript

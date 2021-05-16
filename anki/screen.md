@@ -4,6 +4,7 @@ date: "2021-01-05T13:14:58"
 description: "Anki deck for Screen cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 # Screen

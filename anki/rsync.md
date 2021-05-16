@@ -4,6 +4,7 @@ date: "2021-01-05T13:58:01"
 description: "Anki deck for Rsync cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 # Rsync

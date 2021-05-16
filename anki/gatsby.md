@@ -4,6 +4,7 @@ date: "2020-12-30T08:21:31"
 description: "Anki deck for Gatsby cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 # Gatsby

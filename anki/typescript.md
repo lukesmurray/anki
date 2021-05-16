@@ -4,6 +4,7 @@ date: "2021-01-07T09:29:04"
 description: "Anki deck for Typescript cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 # Typescript

@@ -4,6 +4,7 @@ date: "2021-01-05T14:31:52"
 description: "Anki deck for jq cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 # jq

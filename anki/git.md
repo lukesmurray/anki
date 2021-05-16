@@ -4,6 +4,7 @@ date: "2020-12-25T08:46:06"
 description: "Anki deck for Git cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 

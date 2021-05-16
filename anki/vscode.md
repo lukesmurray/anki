@@ -4,6 +4,7 @@ date: "2020-12-26T08:07:38"
 description: "Anki deck for Vscode cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 # Vscode

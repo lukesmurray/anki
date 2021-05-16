@@ -4,6 +4,7 @@ date: "2021-02-11T18:19:55"
 description: "Anki deck for Rust cards."
 draft: true
 # image: /path/to/image
+css: custom-styles.css
 ---
 
 # Rust
