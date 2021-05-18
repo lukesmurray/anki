@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mdankideck ./anki ./.anki-decks True 'mdankideck::' True
+mdankideck ./anki ./.anki-decks --sync --prefix='mdankideck::' --delete --cloze
