@@ -17,8 +17,13 @@
     ]
   },
   // insert inline code
-  "inline": {
-    "prefix": "inline",
-    "body": "`${1:lang}•${2:snippet}`"
+  "multiline-question": {
+    "prefix": "multiline-question",
+
+    "body": [
+      "<div markdown=\"block\" data-question>",
+      "${0:question content}",
+      "</div>",
+    ]
   }
 }

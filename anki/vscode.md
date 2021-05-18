@@ -1,22 +1,14 @@
 ---
-title: "Vscode"
-date: "2020-12-26T08:07:38"
-description: "Anki deck for Vscode cards."
+title: "vscode"
+date: "2021-05-17T13:54:54"
+description: "Anki deck for vscode cards."
 draft: true
 # image: /path/to/image
 css: custom-styles.css
 ---
 
-# Vscode
+# vscode
 
-## In vscode how do you stage some changes of a file but not others?
+## What is the keyboard shortcut to git stage a selected range in vscode?
 
-- open the git comparison of the fille
-- Select the lines you want to stage.
-- Click '...' then Stage Selected Ranges.
-
-![vscode stage changes](vscode-stage-changes.png)
-
-Alternatively you can select the lines you want to stage and use the keyboard shortcut.
-
-`[CMD + K    ALT + CMD + S]`
+`⌘K ⌥⌘S`

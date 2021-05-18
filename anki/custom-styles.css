@@ -13,6 +13,7 @@ html > .card {
   font-size: 16px;
   border-radius: 8px;
   padding: 24px;
+  max-width: 65ch;
 
   box-shadow: 0 0 0.25rem #fff, inset 0 0 0.25rem #fff, 0 0 1rem #a200ff,
     inset 0 0 1rem #a200ff, 0 0 2rem #a200ff, inset 0 0 2rem #a200ff;
