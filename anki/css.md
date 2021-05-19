@@ -272,3 +272,168 @@ Using `margin: auto`
 ## In css how do you use margin to center an element?
 
 Apply `margin-left: auto; margin-right: auto;` Both margins will seek to fill the maximum available space.
+
+## Can you give a width or height to an inline element in flow layout?
+
+No
+
+
+## Can you assign a margin left or margin right to an inline element in flow layout?
+
+Yes
+
+## In flow layout if two block elements have enough space to render side by side do they render side by side or do they stack vertically?
+
+They stack vertically
+
+## What causes extra space around inline elements if their padding, border, and margin are set to 0?
+
+`line-height`
+
+Inline elements are assumed to be typography and are granted extra space based on the `line-height` property.
+
+<div markdown="block" data-question>
+## What css property can be used to apply padding to each line of an inline element?
+
+The default behavior
+
+![](default-padding-behavior.png)
+
+The desired behavior
+
+![](desired-padding-behavior.png)
+</div>
+
+
+`box-decoration-break: clone;`
+## What is the default value of the css property `box-decoration-break`?
+
+`slice`
+
+## What is the main limitation of an `inline-block` element?
+
+The inline block element cannot line-wrap.
+
+## What is the difference between `width:auto` and `width:100%` in css?
+
+Width auto fills the available space. Width 100% sets the width to the size of the parent element's content box.
+
+## What does `width: min-content` do in css?
+
+Make the element become as small as it can based on the child contents.
+
+## What is the difference between an intrinsic and extrinsic value in css?
+
+Intrinsic values are based on an element or an element's contents. Extrinsic values are based on an element's parent.
+
+## Is `width: auto` an intrinsic or extrinsic value?
+
+`extrinsic` -- width auto specifies that the width should dynamically fill the space *available in the parent element*.
+
+
+## Is `width: min-content` an intrinsic or extrinsic value?
+
+`intrinsic` -- min-content specifies that the width should collapse to as small as possible *based on the child contents*.
+
+## What does `width: max-content` do in css?
+
+Set the width to the smallest value that contains the content without line breaks even if this value is larger than the parent width.
+
+## Is `width: max-content` an intrinsic or extrinsic value?
+
+`intrinsic` -- max-content specifies that the width should expand to the point that there are no line breaks in the content even if this means expanding beyond the width of the parent.
+
+## How does `width: fit-content` work in css?
+
+If the width of the element's children is less than the width of the parent the width behaves like `width: max-content` and the width shrinks to the size of the content. If the width is larger than the available space in the parent the width adds line breaks to ensure it never exceeds the available space similar to `width: auto`
+
+![](fit-content-width-example.png)
+
+## How do width, min-width, and max-width interact in css?
+
+The values are prioritized `min-width`, `max-width`, `width`.
+
+If `max-width` is less than `min-width` then the element will use `min-width`.
+
+<div markdown="block" data-question>
+
+## Fill in the blanks in the algorithm css uses to calculate the width of an element
+
+
+1. The browser calculates the width based on the {{c1::width}} value, ignoring {{c1::min-width}} and {{c1::max-width}}
+2. If width is greater than max-width the browser recalculates width based on the {{c2::max-width}} value, ignoring {{c2::min-width}} and {{c2::width}}
+3. If width is greater than min-width the browser recalculates width based on the {{c3::min-width}} value, ignoring {{c3::width}} and {{c3::max-width}}
+
+</div>
+
+## How can you replicate `width: fit-content` in IE11?
+
+`display: table`
+
+Display table causes an element to shrink to the size of it's contents but the element is still a block level element.
+
+## What is the default height for an element in flow layout in css?
+
+The element's height will shrink to the minimum height necessary to fit the element's content.
+
+
+<div markdown="block" data-question>
+## Why does height 100% on the following element not work?
+
+
+```html
+<style>
+.wrapper {
+  height: 100%;
+}
+</style>
+
+<html>
+<body>
+<div class="wrapper">
+</div>
+</body>
+</html>
+```
+</div>
+
+Because the percentage height is based on the parent height and `body` does not have a height set which means it defaults to shrinking to contain it's children.
+
+<div markdown="block" data-question>
+## How can we make the div in the following example fill the entire page while allowing for the content to expand beyond the page height if necessary?
+
+
+```html
+<style>
+.wrapper {
+  height: 100%;
+}
+</style>
+
+<html>
+<body>
+<div class="wrapper">
+</div>
+</body>
+</html>
+```
+</div>
+
+Add `height:100%` to `html` and `body` and `height: 100%` to `min-height: 100%` on the wrapper.
+
+```html
+<style>
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+}
+</style>
+```
+
+When html has `height: 100%` it takes up the height of the viewport. The body will expand to fill the size of `html` and the `.wrapper` will expand to fill the size of `body` but grow larger than the body if the content fills more than a page.
+
+
