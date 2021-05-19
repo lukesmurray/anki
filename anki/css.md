@@ -158,6 +158,8 @@ p {
 ```
 </div>
 
+red
+
 ## What is the clock trick for css short hands?
 
 Many css short hands are specified in clockwise order `Top`, `Right`, `Bottom`, `Left`. You can picture these values being assigned in order around a clock.
@@ -227,6 +229,9 @@ Content
 `548px x 48px`
 
 Because the `.box` has `box-sizing: content-box` width refers to the box content and padding and border are added on top.
+
+<div markdown="block" data-question>
+
 ## What are the dimensions of the box in the following example?
 
 ```html
