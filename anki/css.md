@@ -436,4 +436,249 @@ html, body {
 
 When html has `height: 100%` it takes up the height of the viewport. The body will expand to fill the size of `html` and the `.wrapper` will expand to fill the size of `body` but grow larger than the body if the content fills more than a page.
 
+## Do horizontal margins collapse in CSS?
 
+No
+
+## Do vertical margins collapse in CSS?
+
+Yes
+
+## What layout mode in css causes margins to collapse?
+
+Flow layout
+
+## List the layout modes in css which cause margins to collapse
+
+Flow layout
+
+<div markdown="block" data-question>
+Given the following html what is the margin between the two paragraphs
+
+```html
+<style>
+.top {
+  margin: 24px;
+}
+
+.bottom {
+  margin: 48px;
+}
+</style>
+<p class="top">
+Do sint cupidatat mollit qui pariatur minim aliquip culpa incididunt.
+</p>
+<p class="bottom">
+Do sint cupidatat mollit qui pariatur minim aliquip culpa incididunt.
+</p>
+```
+</div>
+
+
+48px. The two margins collapse because they are adjacent and vertical but the larger margin wins.
+
+
+<div markdown="block" data-question>
+Given the following html what is the margin between the two paragraphs
+
+```html
+<style>
+.top {
+  margin: 24px;
+}
+
+.bottom {
+  margin: 48px;
+}
+</style>
+<p class="top">
+Do sint cupidatat mollit qui pariatur minim aliquip culpa incididunt.
+</p>
+<br/>
+<p class="bottom">
+Do sint cupidatat mollit qui pariatur minim aliquip culpa incididunt.
+</p>
+```
+</div>
+
+72px (48 + 24).
+
+Margin only collapses for adjacent html elements.
+Because of the `br` tag the paragraph tags are no longer adjacent
+
+<div markdown="block" data-question>
+Given the following html what is the margin between the two paragraphs
+
+```html
+<style>
+  p {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+</style>
+<div>
+  <p>Paragraph One</p>
+</div>
+<p>Paragraph Two</p>
+```
+</div>
+
+48px. The margins collapse because the margins are touching even though one margin is inside a div.
+
+<div markdown="block" data-question>
+Given the following html what is the margin between the two paragraphs
+
+```html
+<style>
+  p {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+  div {
+    padding: 2px;
+  }
+</style>
+<div>
+  <p>Paragraph One</p>
+</div>
+<p>Paragraph Two</p>
+```
+</div>
+
+98px. (48 + 2 + 48). The margins are no longer touching because there is padding between the margins so the margins do not collapse.
+
+
+<div markdown="block" data-question>
+
+## Fill in the blanks for the following margin collapse rule
+
+Margins must be {{c1::touching}} in order for them to {{c2:collapse}}
+
+</div>
+
+
+
+<div markdown="block" data-question>
+
+## Fill in the blanks for the following margin collapse rule
+
+A {{c1::parent}} and {{c1::child}} can combine margins in the same direction
+
+</div>
+
+<div markdown="block" data-question>
+Given the following html what is the margin between the two paragraphs
+
+```html
+<style>
+  p {
+    margin-top: -72px;
+    margin-bottom: -48px;
+  }
+</style>
+<div>
+  <p>Paragraph One</p>
+</div>
+<p>Paragraph Two</p>
+```
+</div>
+
+-72px. The margins both share the same space and the smaller negative margin is absorbed into the larger negative margin. 
+
+<div markdown="block" data-question>
+Given the following html what is the margin between the two paragraphs
+
+```html
+<style>
+  p {
+    margin-top: -72px;
+    margin-bottom: 72px;
+  }
+</style>
+<div>
+  <p>Paragraph One</p>
+</div>
+<p>Paragraph Two</p>
+```
+</div>
+
+0px. The margins share the same space but they are added together and cancel each other out.
+
+<div markdown="block" data-question>
+## Fill in the algorithm for margin collapse with negative and positive margins.
+
+- Find the {{c1::largest positive margin}}
+- Find the {{c2::most negative negative margin}}
+- {{c3::Add those two numbers together}}
+</div>
+
+## What is the default position value in css?
+
+
+Static.
+
+```css
+* {
+  position: static;
+}
+```
+
+## What css properties are ignored on an element with position static?
+
+`top`, `left`, `right`, `bottom`
+
+## How is shifting an element with `position: relative` different from shifting an element with `position: static; margin: ...` with regard to layout?
+
+Shifting an element with `position: relative` does not impact layout.
+The browser acts like the element is in its original position.
+
+## How is shifting an element with `position: relative` different from shifting an element with `position: static; margin: ...` with regard to dimensions?
+
+Shifting an element with `position: relative` does not impact the dimensions of the element.
+Changing the margin might impact the dimensions of the element.
+
+![](margin-vs-position-relative.png)
+
+## Can position relative be applied to inline elements?
+
+Yes
+
+## Can position relative be applied to block elements?
+
+Yes
+
+## How does an element with `position: absolute` effect the layout of other elements?
+
+Elements with position absolute are pulled out of flow and do not effect the layout of the other elements.
+
+## What is the default layout location for an element with `position: absolute`?
+
+The element will be placed in it's natural position as if it had `position: static` but will not effect the flow of other elements.
+
+<div markdown="block" data-question>
+## Describe how the following paragraphs will be rendered.
+
+```html
+<style>
+p {
+  position: absolute;
+}
+</style>
+
+<p>This is a paragraph.</p>
+<p>Another paragraph, with different words.</p>
+<p>Finally, to complete the set, a third.</p>
+```
+
+</div>
+
+The paragraphs will be rendered one on top of the next.
+The first paragraph is rendered in it's natural position and taken out of flow, then the second paragraph is rendered in it's natural position which is the same as the first since the first paragraph has been taken out of flow. 
+
+This pattern repeats for each subsequent paragraph.
+
+![](paragraphs-position-absolute.png)
+
+## How does `position: absolute` change the width of block elements?
+
+Block elements with position absolute will shrink to the smallest size which fits their contents. If the content is larger than the parent element then the content will line wrap. If the content cannot be line wrapped the content will spill out beyond the parent's content box.
