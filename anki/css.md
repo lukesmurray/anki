@@ -552,7 +552,7 @@ Given the following html what is the margin between the two paragraphs
 
 ## Fill in the blanks for the following margin collapse rule
 
-Margins must be {{c1::touching}} in order for them to {{c2:collapse}}
+Margins must be {{c1::touching}} in order for them to {{c2::collapse}}
 
 </div>
 
@@ -612,7 +612,7 @@ Given the following html what is the margin between the two paragraphs
 - {{c3::Add those two numbers together}}
 </div>
 
-## What is the default position value in css?
+## What is the default value for the position property in css?
 
 
 Static.
@@ -682,3 +682,143 @@ This pattern repeats for each subsequent paragraph.
 ## How does `position: absolute` change the width of block elements?
 
 Block elements with position absolute will shrink to the smallest size which fits their contents. If the content is larger than the parent element then the content will line wrap. If the content cannot be line wrapped the content will spill out beyond the parent's content box.
+
+## How can you offset an element with `position: absolute` on the horizontal axis while retaining it's natural positioning on the other axis?
+
+Set `left` or `right` while leaving `top` and `bottom` unspecified.
+
+## How do you center an element with absolute positioning?
+
+Give the element a specific width and height, set `left`, `top`, `right`, `bottom` to `0px`, give the element `margin: auto`.
+
+## How does margin effect layout when an element has absolute positioning?
+
+The margin does not effect the layout of any elements except the absolute positioned element it is applied to.
+
+
+<div markdown="block" data-question>
+## Complete the following rule
+
+Only {{c1::non-static elements}} can constrain {{c2::absolutely positioned}} children
+</div>
+
+<div markdown="block" data-question>
+## How would you fix the following css to position the child element inside the parent.
+
+```html
+<style>
+.parent {
+
+}
+
+.child {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+</style>
+<div class="parent">
+  <div class="child">
+  </div>
+</div>
+```
+</div>
+
+add `position: relative` to the parent so that the absolute positioning is relative to the parent.
+
+## What is a containing block in css?
+
+The first parent of an element which has a position other than static or, if no such element exists, virtual a box the size of the viewport at the top of a document.
+
+## Does parent padding apply to child elements with `position: absolute`?
+
+No
+
+<div markdown="block" data-question>
+## Complete the following sentence
+
+The browser first paints {{c1::static items}} and *then* paints {{c2::non-static items}}.
+</div>
+
+## How does a parent stacking context effect it's children?
+
+The children are layered within their parent's stacking context and cannot be controlled to be drawn above/below one of the parent's siblings.
+
+## If I want to paint an element above some others in css do I raise or lower the z-index of the element?
+
+Raise the z-index. Elements with higher z-indexes are painted above elements with lower z-indexes.
+
+## What does the `isolation` property do in css?
+
+Create a stacking context if the value is `isolate`.
+
+## What css declaration can be used to create a stacking context in css?
+
+`isolation: isolate`
+
+## What is the difference between where an absolute and fixed element is positioned?
+
+An absolute element is positioned based on the containing block -- the first parent element with a `position` property value other that static.
+The fixed element is positioned based on the *initial containing block*
+
+## What is the initial containing block in css?
+
+A virtual block the size and position of the viewport
+
+## How does the `transform` property effect elements with `position: fixed`?
+
+The element with the `transform` property becomes the containing block for the element with `position: fixed`.
+
+## What is the default value for the property `overflow` in css?
+
+`visible`
+
+## What is the difference between `overflow: scroll` and `overflow: auto`?
+
+`overflow: auto` only shows a scrollbar when the content overflows the bounds of its parent.
+
+## How does content with `overflow: visible` effect surrounding flow?
+
+It does not effect surrounding flow which can give the appearance of visual bugs.
+
+## What does the property `overflow: hidden` do?
+
+Truncate anything that extends beyond the bounds of its container.
+
+## Why does `overflow-x: auto` not work by itself to scroll horizontally on inline elements?
+
+Because inline elements line wrap. You need to combine `overflow-x: auto` with the property `white-space` providing a value like `nowrap` which prevents line wrapping.
+
+## How does `overflow` interact with *containing blocks* and absolute positioned elements?
+
+Absolute positioned elements are *contained* by a *containing block* so overflow values on parents which are not the absolute elements containing block are ignored.
+
+
+## How do `left`, `top`, `right`, `bottom` work with position sticky?
+
+Control the minimum gap between the element and the edge of the viewport while the container is in frame.
+
+## Can elements with `position: sticky` receive a negative value for `top`?
+
+Yes
+
+## How can you make an element with `position: sticky` stick to the top of the viewport?
+
+Use `top: 0px`
+
+## How do elements with `position: sticky` effect flow?
+
+Elements with `position: sticky` are laid out in flow and take up space.
+The initial space they take up remains even when the element *sticks* to the viewport.
+
+## How does parent overflow effect `position: sticky`?
+
+An ancestor with `overflow` set to `hidden`, `scroll`, or `auto` will prevent `position: sticky` from working on a child element.
+
+## What is the difference between `visibility:hidden` and `display: none`?
+
+Elements with `visibility: hidden` are not rendered on the DOM but the item still takes up space.
+
+Elements with `display: none` are completed removed from the rendering layout.
+
+
