@@ -821,4 +821,10 @@ Elements with `visibility: hidden` are not rendered on the DOM but the item stil
 
 Elements with `display: none` are completed removed from the rendering layout.
 
+## Does a :before pseudo class show up before the element it is attached to or before the content of the element?
 
+The content of the element.
+
+## What property is used to render content in a :before pseudo class?
+
+The `content` property.
