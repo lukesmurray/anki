@@ -8,3 +8,8 @@ css: custom-styles.css
 ---
 
 # typescript
+
+## What does `noEmitOnError` do in typescript?
+
+Prevent the typescript compiler from emitting code if there is an  error.
+
